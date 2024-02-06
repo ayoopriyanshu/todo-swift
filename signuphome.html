@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>To-Do App Sign Up</title>
+    <style>
+        body {
+            font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: rgb(43, 154, 228);
+        }
+        #div-body{
+            padding: 20px;
+            margin: 20px;
+            background-color: rgb(145, 202, 240);
+            border-radius: 10px;
+        }
+        #main-heading{
+            text-align: center;
+            background-color: rgb(188, 224, 248);
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        #signup-conatiner{
+            text-align: center;
+        }
+        #reg-btn{
+            font-size: 16px;
+            padding: 5px;
+            background-color: rgb(56, 157, 240);
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .input-box{
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <div id="div-body">
+        <h1 id="main-heading" onclick="location.reload()">TO-DO App</h1>
+        <hr color="black">
+        <br>
+        <div id="signup-conatiner">
+            <h2 id="secondary-head">SIGN UP</h2>
+            <img src="right-arrow.png" width="10">
+            <input class="input-box" id="uname-input" type="text" placeholder="Username..." maxlength="12" required><br>
+            <img src="right-arrow.png" width="10">
+            <input class="input-box" id="pkey-input" type="password" placeholder="Set Passkey..."  maxlength="10" required><br><br>
+            <button type="button" id="reg-btn" onclick="registerUser()"><img src="9428917.png" width="18">Register</button><br>
+            <div id="reg-info">
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function registerUser(){
+            let uName=document.querySelector('#uname-input').value;
+            let pKey=document.querySelector('#pkey-input').value;
+            if(isValid(uName,pKey)){
+                saveCredentials(uName,pKey);
+                document.querySelector('#uname-input').value="";
+                document.querySelector('#pkey-input').value="";
+                document.querySelector('#reg-info').innerHTML=`<h5 style="color: rgb(23, 235, 23);"">Registered Successfully !!!</h5>`;
+                setTimeout(function emptyDiv(){
+                    document.querySelector('#reg-info').innerHTML="";
+                },2000);
+                window.location.href="home.html";
+            }
+            else{ 
+                document.querySelector('#uname-input').value="";
+                document.querySelector('#pkey-input').value="";
+                innerHTML=`<h5 style="color: red;">Invalid Credentials</h5>`;
+                setTimeout(function(){
+                    document.querySelector('#reg-info').innerHTML="";
+                },2000);
+            }
+        }
+        function isValid(uName,pKey){
+            return !localStorage.getItem(`user_${uName}`);
+        }
+        function saveCredentials(uName,pKey){
+            localStorage.setItem(`user_${uName}`,`${pKey}`);
+        }
+    </script>
+</body>
+</html>

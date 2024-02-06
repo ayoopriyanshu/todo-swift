@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>TO-DO App</title>
+    <link rel="stylesheet" href="todo.css">
+</head>
+<body>
+    <div id="div-body">
+        <h1 id="main-heading" onclick="location.reload()">TO-DO List</h1>
+        <hr color="black">
+        <div id="signup-conatiner">
+            <h2 id="secondary-head">SIGN IN</h2>
+            <img src="right-arrow.png" width="10">
+            <input class="signin-input-box" id="uname-input" type="text" placeholder="Username..." maxlength="12" required><br>
+            <img src="right-arrow.png" width="10">
+            <input class="signin-input-box" id="pkey-input" type="password" placeholder="Set Passkey..."  maxlength="10" required><br>
+            <a href="signuphome.html"><label id="label1"  style="color: rgb(35, 93, 253); font-size: small;" ><u>New User? Create an Account</u></label></a><br><br>
+            <button type="button" id="reg-btn" onclick="signInUser()"><img src="user.png" width="18">Sign In</button><br>
+            <div id="reg-info">
+
+            </div>
+        </div><br>
+        <!--<div class="topnav">
+            <a href="signinhome.html" target="_blank"><button id="signin-btn" ><img src="signin.png" width="20px"> Sign In</button></a>
+        </div><br>-->
+        <div id="tasks-dashboard">
+            <input id="input-box" maxlength="45" type="text" placeholder="Enter your task...">
+            <button id="clear-btn" onclick="document.querySelector('#input-box').value=``";>clear</button>
+            <input id="date-input-box" type="date">
+            <br>
+
+            <button class="btn" id="add-btn" onclick="addTask();"><img src="plus.png" width="13">Add</button>
+            <div class="sections">
+                <h2>Forthcoming</h2>
+                <hr>
+
+                <div class="div-container"></div>
+            </div>
+            <div class="sections">
+                <h2 id="previous-heading">Previous</h2>
+                <hr><br>
+
+                <div class="previous-section"></div>
+            </div>
+        </div>
+</div>
+    <script src="todo.js"></script>
+
+</body>
+</html>
