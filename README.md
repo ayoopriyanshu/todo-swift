@@ -7,7 +7,7 @@ a web todo app with exquisite UI, makes user to register signup and signin using
   download the zip folder and open the main html file- home.html with live server there you go then.
 ```
 
-## Features
+# Features
 
 - Register and remember the user with username and passkey 
 - Signin to your account
